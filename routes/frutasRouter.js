@@ -7,7 +7,7 @@ const {ListaFrutas} = require('./../models/frutasModel');
 let jsonParser = bodyParser.json();
 
 router.get('/lista-frutas', jsonParser, (req, res) => {
-	let promise new Promise(function(resolve, reject){
+	let promise = new Promise(function(resolve, reject){
 		listaFrutas.obtener(resolve, reject);
 	})
 	.then (lista => {

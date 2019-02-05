@@ -16,7 +16,7 @@ const ListaFrutas = {
 			})
 			.catch(err => {
 				reject(err);
-			})
+			});
 	},
 	crear : function(resolve, reject, nuevaFruta){
 		Frutas.create(nuevaFruta)
@@ -25,7 +25,7 @@ const ListaFrutas = {
 			})
 			.catch(err => {
 				reject(err);
-			})
+			});
 	},
 	actualizar : function (resolve, reject, idFruta, frutaActualizada){
 		Frutas.findByIdAndUpdate(idFruta, {$set : frutaActualizada}, {new : true})
