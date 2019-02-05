@@ -5,10 +5,18 @@ const router = express.Router();
 const {ListaFrutas} = require('./../models/frutasModel');
 
 let jsonParser = bodyParser.json();
-/*
+
 router.get('/lista-frutas', jsonParser, (req, res) => {
-	res.json(ListaFrutas.obtener());
-}); */
+	let promise new Promise(function(resolve, reject){
+		listaFrutas.obtener(resolve, reject);
+	})
+	.then (lista => {
+		res.json(lista);
+	})
+	.catch(err => {
+		res.status(500).json(err);
+	});
+}); 
 
 router.post('/lista-frutas', jsonParser, (req, res) => {
 	console.log(req.body);

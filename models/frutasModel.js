@@ -9,8 +9,14 @@ const dbFrutas = mongoose.Schema({
 const Frutas = mongoose.model("Frutas", dbFrutas);
 
 const ListaFrutas = {
-	obtener : function(){
-		return inventarioFrutas
+	obtener : function(resolve, reject){
+		Frutas.find()
+			.then(frutas => {
+				resolve(frutas);
+			})
+			.catch(err => {
+				reject(err);
+			})
 	},
 	crear : function(resolve, reject, nuevaFruta){
 		Frutas.create(nuevaFruta)
