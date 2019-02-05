@@ -8,7 +8,7 @@ let jsonParser = bodyParser.json();
 
 router.get('/lista-frutas', jsonParser, (req, res) => {
 	let promise = new Promise(function(resolve, reject){
-		listaFrutas.obtener(resolve, reject);
+		ListaFrutas.obtener(resolve, reject);
 	})
 	.then (lista => {
 		res.json(lista);
