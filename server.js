@@ -7,6 +7,7 @@ mongoose.Promise = global.Promise;
 
 let app = express();
 
+app.use(express.static('public'));
 app.use('/api/', frutasRouter);
 
 // this function connects to our database, then starts the server

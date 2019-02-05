@@ -39,7 +39,7 @@ router.post('/lista-frutas', jsonParser, (req, res) => {
 router.put('/lista-frutas/:_id', jsonParser, (req, res) => {
 	let idParam = req.params._id;
 	let idBody = req.body._id;
-
+	console.log("idParam" + idParam);
 	if (idParam && idBody && idParam == idBody){
 		let promise = new Promise(function(resolve, reject){
 			let frutaActualizada = {
@@ -59,9 +59,6 @@ router.put('/lista-frutas/:_id', jsonParser, (req, res) => {
 		res.status(400).json({error : "Id no coincide entre param y body"})
 	}
 	
-
-	return res.status(400).send("Id no se encontró en la lista");
-
 });
 
 router.delete('/lista-frutas/:id', jsonParser, (req, res) => {
